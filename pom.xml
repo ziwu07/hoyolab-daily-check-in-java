@@ -9,7 +9,6 @@
   <version>0.1</version>
 
   <name>hoyolab-daily-check-in-java</name>
-  <!-- FIXME change it to the project's website -->
   <url>https://hutaomybeloved.com</url>
 
   <properties>
@@ -22,7 +21,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -74,7 +73,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.6.0</version> <!-- Use the latest version -->
+          <version>3.6.0</version>
           <configuration>
             <archive>
               <manifest>
@@ -94,6 +93,11 @@
               </goals>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>2.16.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
