@@ -2,7 +2,7 @@ package hoyolabdailycheckin;
 
 import org.apache.commons.cli.*;
 
-public class Main {
+public class Cli {
     public static void main(String[] args) throws ParseException {
         Options options = new Options();
 

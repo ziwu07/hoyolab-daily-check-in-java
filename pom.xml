@@ -77,7 +77,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>hoyolabdailycheckin.Main</mainClass> <!-- Replace with your main class -->
+                <mainClass>hoyolabdailycheckin.Cli</mainClass> <!-- Replace with your main class -->
               </manifest>
             </archive>
             <descriptorRefs>
@@ -99,6 +99,40 @@
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.16.1</version>
         </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>3.1.0</version>
+          <executions>
+              <execution>
+                  <phase>package</phase>
+                  <goals>
+                      <goal>exec</goal>
+                  </goals>
+                  <configuration>
+                      <executable>jpackage</executable>
+                      <arguments>
+                          <argument>--type</argument>
+                          <argument>exe</argument>
+                          <argument>--input</argument>
+                          <argument>${project.build.directory}</argument>
+                          <argument>--name</argument>
+                          <argument>HoyolabDalyCheckinService</argument>
+                          <argument>--main-jar</argument>
+                          <argument>${project.build.finalName}-jar-with-dependencies.java</argument>
+                          <argument>--main-class</argument>
+                          <argument>hoyolabdailycheckin.Cli</argument>
+                          <argument>--app-version</argument>
+                          <argument>${project.version}</argument>
+                          <argument>--icon</argument>
+                          <argument></argument>
+                          <argument>--win-console</argument>
+                          <!-- add other arguments here as shown above -->
+                      </arguments>
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
       </plugins>
     </pluginManagement>
   </build>
